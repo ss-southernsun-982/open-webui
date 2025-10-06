@@ -225,7 +225,7 @@
 			class="w-full text-sm text-left text-gray-500 dark:text-gray-400 table-auto max-w-full rounded-sm"
 		>
 			<thead
-				class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-850 dark:text-gray-400 -translate-y-0.5"
+				class="text-xs text-white uppercase bg-gray-50 dark:bg-gray-850 dark:text-gray-400 -translate-y-0.5"
 			>
 				<tr class="">
 					<th
@@ -365,6 +365,12 @@
 									<ChevronUp className="size-2" />
 								</span>
 							{/if}
+						</div>
+					</th>
+
+					<th scope="col" class="px-3 py-1.5 cursor-pointer select-none">
+						<div class="flex gap-1.5 items-center">
+							{$i18n.t('Budget')}
 						</div>
 					</th>
 

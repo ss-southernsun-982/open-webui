@@ -34,7 +34,7 @@ class JSONField(types.TypeDecorator):
         return json.dumps(value)
 
     def process_result_value(self, value: Optional[_T], dialect: Dialect) -> Any:
-        if value is not None:
+        if value is not None and value != "null":
             return json.loads(value)
 
     def copy(self, **kw: Any) -> Self:

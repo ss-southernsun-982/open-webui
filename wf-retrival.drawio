@@ -1,0 +1,98 @@
+<mxfile host="65bd71144e">
+    <diagram id="nbjGKswmo19weLJm-hnx" name="Page-1">
+        <mxGraphModel dx="1146" dy="648" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="24" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="80" y="160" width="690" height="420" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Xử lý câu hỏi" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="24">
+                    <mxGeometry x="10" y="10" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Người dùng đặt câu hỏi&lt;div&gt;Ví dụ: Chính sách hỗ trợ công tác phí của band 3&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;spacingLeft=16;spacingRight=8;align=center;" vertex="1" parent="24">
+                    <mxGeometry x="200" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Sử dụng câu hỏi để truy vấn. vectorDB lấy ra phần tóm tắt&lt;br&gt;Ví dụ: Lấy ra tóm tắt của công tác phí" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="24">
+                    <mxGeometry x="450" y="10" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;b&gt;Truy vấn lần 1&lt;/b&gt;&lt;br&gt;Kết hợp kết quả của vector + câu hỏi của người dùng" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;spacingLeft=16;" vertex="1" parent="24">
+                    <mxGeometry x="10" y="180" width="180" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Cho qua AI xử lý để ra câu truy vấn mới vào vectorDB" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=8;" vertex="1" parent="24">
+                    <mxGeometry x="280" y="190" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="24" source="8" target="12">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="410" y="220" as="sourcePoint"/>
+                        <mxPoint x="520" y="220" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="Label" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Kết quả AI trả về" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="9">
+                    <mxGeometry x="-0.0298" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="Truy vấn lại vectorDB" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="24">
+                    <mxGeometry x="550" y="190" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="&lt;b&gt;Truy vấn lần 2&lt;/b&gt;&lt;br&gt;Kết hợp kết quả của vector + câu hỏi của người dùng" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;spacingLeft=16;" vertex="1" parent="24">
+                    <mxGeometry y="330" width="180" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="24" source="5" target="7">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="260" y="170" as="sourcePoint"/>
+                        <mxPoint x="310" y="120" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="530" y="150"/>
+                            <mxPoint x="100" y="150"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="24" source="7" target="8">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="170" y="260" as="sourcePoint"/>
+                        <mxPoint x="220" y="210" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="24" source="12" target="13">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="515" y="240" as="sourcePoint"/>
+                        <mxPoint x="85" y="330" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="620" y="300"/>
+                            <mxPoint x="85" y="300"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="19" value="Cho qua AI + prompt system để xử lý kết quả cuối cùng" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=8;" vertex="1" parent="24">
+                    <mxGeometry x="280" y="340" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="24" source="13" target="19">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="170" y="374.5" as="sourcePoint"/>
+                        <mxPoint x="270" y="374.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="21" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="24" source="3" target="4">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="150" y="70" as="sourcePoint"/>
+                        <mxPoint x="200" y="20" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="Phản hồi kết quả" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="24">
+                    <mxGeometry x="570" y="335" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="24" source="19" target="22">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="460" y="390" as="sourcePoint"/>
+                        <mxPoint x="510" y="340" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

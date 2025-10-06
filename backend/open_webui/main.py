@@ -438,7 +438,7 @@ from open_webui.utils.chat import (
 )
 from open_webui.utils.embeddings import generate_embeddings
 from open_webui.utils.middleware import process_chat_payload, process_chat_response
-from open_webui.utils.access_control import has_access
+from open_webui.utils.access_control import has_access, limit_chats_by_budget
 
 from open_webui.utils.auth import (
     get_license_data,
@@ -488,17 +488,15 @@ class SPAStaticFiles(StaticFiles):
 
 print(
     rf"""
- ██████╗ ██████╗ ███████╗███╗   ██╗    ██╗    ██╗███████╗██████╗ ██╗   ██╗██╗
-██╔═══██╗██╔══██╗██╔════╝████╗  ██║    ██║    ██║██╔════╝██╔══██╗██║   ██║██║
-██║   ██║██████╔╝█████╗  ██╔██╗ ██║    ██║ █╗ ██║█████╗  ██████╔╝██║   ██║██║
-██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║    ██║███╗██║██╔══╝  ██╔══██╗██║   ██║██║
-╚██████╔╝██║     ███████╗██║ ╚████║    ╚███╔███╔╝███████╗██████╔╝╚██████╔╝██║
- ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝     ╚══╝╚══╝ ╚══════╝╚═════╝  ╚═════╝ ╚═╝
-
-
-v{VERSION} - building the best AI user interface.
-{f"Commit: {WEBUI_BUILD_HASH}" if WEBUI_BUILD_HASH != "dev-build" else ""}
-https://github.com/open-webui/open-webui
+  ______                         __      __                                     
+ /      \                       |  \    |  \                                    
+|  $$$$$$\  ______   __    __  _| $$_   | $$____    ______    ______   _______  
+| $$___\$$ /      \ |  \  |  \|   $$ \  | $$    \  /      \  /      \ |       \ 
+ \$$    \ |  $$$$$$\| $$  | $$ \$$$$$$  | $$$$$$$\|  $$$$$$\|  $$$$$$\| $$$$$$$\
+ _\$$$$$$\| $$  | $$| $$  | $$  | $$ __ | $$  | $$| $$    $$| $$   \$$| $$  | $$
+|  \__| $$| $$__/ $$| $$__/ $$  | $$|  \| $$  | $$| $$$$$$$$| $$      | $$  | $$
+ \$$    $$ \$$    $$ \$$    $$   \$$  $$| $$  | $$ \$$     \| $$      | $$  | $$
+  \$$$$$$   \$$$$$$   \$$$$$$     \$$$$  \$$   \$$  \$$$$$$$ \$$       \$$   \$$
 """
 )
 
@@ -1372,6 +1370,9 @@ async def chat_completion(
 
             request.state.direct = True
             request.state.model = model
+
+        if model and limit_chats_by_budget(user.id, model.get('id', 'unknown')):
+            raise Exception("Bạn đã hết số lượng tokens với model này. Vui lòng thử lại vào ngày mai hoặc liên hệ quanglt1@nutifood.com để được hỗ trợ. Xin cảm ơn!")
 
         metadata = {
             "user_id": user.id,

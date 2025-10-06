@@ -1,0 +1,670 @@
+@reference "../../src/tailwind.css";
+@tailwind base;
+@tailwind components;
+
+:root {
+  --color-nutifood-primary: #006E43;
+  --color-nutifood-secondary: #E6BA00;
+  --color-nutifood-tertiary: #1F1F00;
+  --color-nutifood-quaternary: #FFEF99;
+  --color-nutifood-white: #ffffff;
+  --color-gray-300: #4a4a4a;
+  --color-gray-800: #ffffff;
+  --color-gray-850: #ffffff;
+  --color-gray-900: #ffffff;
+  --color-gray-700: #dee2e6;
+  --border-radius: 0.375rem;
+}
+
+.text-gray-850 {
+  color: var(--color-nutifood-white) !important;
+}
+
+.border-gray-100 {
+  border-color: var(--color-nutifood-primary) !important;
+  background-color: var(--color-nutifood-primary) !important;
+}
+
+.chat-user {
+  color: var(--color-nutifood-white) !important;
+}
+
+.hover\:bg-gray-900 {
+  background-color: var(--color-nutifood-primary) !important;
+  color: var(--color-nutifood-white) !important;
+}
+
+.hover\:bg-gray-900 {
+  &:hover {
+    background-color: var(--color-nutifood-quaternary) !important;
+    color: var(--color-nutifood-tertiary) !important;
+  }
+}
+
+.hover\:bg-gray-50 {
+  &:hover {
+    color: var(--color-nutifood-tertiary) !important;
+    background-color: var(--color-nutifood-quaternary) !important;
+  }
+}
+
+.modal {
+  button {
+    color: var(--color-nutifood-primary) !important;
+  }
+
+  /* div div button {
+    color: var(--color-nutifood-white) !important;
+  } */
+
+  button div button {
+    color: var(--color-nutifood-primary) !important;
+  }
+
+  button:hover {
+    color: var(--color-nutifood-tertiary) !important;
+  }
+
+  button:hover div {
+    color: var(--color-nutifood-tertiary) !important;
+  }
+
+  [aria-selected="true"] {
+    color: var(--color-nutifood-tertiary) !important;
+  }
+
+  .hover\:bg-gray-900 {
+    background-color: var(--color-nutifood-primary) !important;
+    color: var(--color-nutifood-white) !important;
+  }
+
+  .hover\:bg-gray-900 {
+    &:hover {
+      background-color: var(--color-nutifood-quaternary) !important;
+      color: var(--color-nutifood-tertiary) !important;
+    }
+  }
+
+  input,
+  select,
+  optgroup,
+  textarea,
+  ::file-selector-button {
+    color: var(--color-nutifood-primary);
+    background-color: var(--color-nutifood-white) !important;
+  }
+
+  div div:last-of-type div:last-of-type div:last-of-type {
+    /* button {
+      color: var(--color-nutifood-white) !important;
+      background-color: var(--color-nutifood-primary) !important;
+    } */
+
+    #tab-account,
+    #tab-about {
+      button {
+        color: var(--color-nutifood-white) !important;
+        background-color: var(--color-nutifood-primary) !important;
+      }
+
+      button:hover {
+        color: var(--color-nutifood-tertiary) !important;
+        background-color: var(--color-nutifood-quaternary) !important;
+      }
+
+      .text-gray-500 {
+        background-color: transparent !important;
+        color: var(--color-nutifood-primary) !important;
+      }
+
+      .text-gray-500:hover {
+        color: var(--color-nutifood-tertiary) !important;
+        background-color: transparent !important;
+      }
+    }
+  }
+}
+
+.overflow-y-hidden {
+  color: var(--color-nutifood-tertiary) !important;
+  background-color: var(--color-nutifood-white) !important;
+}
+
+input,
+select,
+optgroup,
+textarea,
+::file-selector-button {
+  color: var(--color-nutifood-tertiary);
+  background-color: var(--color-nutifood-white) !important;
+}
+
+form .w-full input[class*="text-3xl"] {
+  color: var(--color-nutifood-primary) !important;
+}
+
+body div.z-99999999 {
+  .bg-gray-50 {
+    background-color: var(--color-nutifood-white) !important;
+  }
+
+  button.bg-gray-900 {
+    background-color: var(--color-nutifood-primary) !important;
+    color: var(--color-nutifood-white) !important;
+  }
+
+  button.bg-gray-900:hover {
+    background-color: var(--color-nutifood-quaternary) !important;
+    color: var(--color-nutifood-tertiary) !important;
+  }
+
+  button.bg-gray-100 {
+    background-color: var(--color-nutifood-secondary) !important;
+    color: var(--color-nutifood-white) !important;
+  }
+
+  button.bg-gray-100:hover {
+    background-color: var(--color-nutifood-quaternary) !important;
+    color: var(--color-nutifood-tertiary) !important;
+  }
+}
+
+#messages-container {
+  .border-gray-100 {
+    /* color: var(--color-nutifood-white) !important; */
+    background-color: var(--color-nutifood-white) !important;
+  }
+}
+
+#model-list {
+  .hover\:bg-black\/5 {
+    border: 1px solid var(--color-nutifood-primary) !important;
+    margin-top: 0.5rem;
+  }
+
+  .hover\:bg-black\/5 {
+    &:hover {
+      background-color:
+        color-mix(in oklab, var(--color-black) 5%, transparent);
+    }
+  }
+}
+
+#sidebar {
+  .text-gray-500 {
+    color: var(--color-nutifood-secondary) !important;
+  }
+
+  .text-gray-300 {
+    color: var(--color-nutifood-white) !important;
+  }
+
+  a {
+    color: var(--color-nutifood-white) !important;
+  }
+
+  button {
+    color: var(--color-nutifood-white) !important;
+  }
+
+  button div button {
+    color: var(--color-nutifood-tertiary) !important;
+  }
+
+  button:hover div {
+    color: var(--color-nutifood-tertiary) !important;
+  }
+
+  .hover\:bg-gray-900 {
+    background-color: var(--color-nutifood-primary) !important;
+    color: var(--color-nutifood-white) !important;
+  }
+
+  .hover\:bg-gray-900 {
+    &:hover {
+      background-color: var(--color-nutifood-quaternary) !important;
+      color: var(--color-nutifood-tertiary) !important;
+    }
+  }
+
+  .hover\:bg-gray-100:hover {
+    color: var(--color-nutifood-tertiary) !important;
+  }
+
+  .hover\:bg-gray-100:hover button {
+    color: var(--color-nutifood-tertiary) !important;
+  }
+
+  .hover\:bg-gray-100:hover div {
+    color: var(--color-nutifood-tertiary) !important;
+  }
+
+  a.bg-gray-100 {
+    color: var(--color-nutifood-tertiary) !important;
+  }
+
+  .group-hover\:bg-gray-100 {
+    &:is(:where(.group):hover *) {
+      color: var(--color-nutifood-tertiary) !important;
+    }
+  }
+
+}
+
+
+#auth-page {
+  #auth-container {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    input,
+    select,
+    optgroup,
+    textarea,
+    ::file-selector-button {
+      color: var(--color-gray-50);
+    }
+  }
+
+  form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+
+    div:first-of-type {
+      margin-bottom: 0.5rem;
+    }
+
+    button {
+      background-color: var(--color-nutifood-primary);
+      color: var(--color-nutifood-white);
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: var(--color-nutifood-quaternary) !important;
+      color: var(--color-nutifood-tertiary) !important;
+    }
+
+    label {
+      color: var(--color-nutifood-tertiary) !important;
+    }
+
+    input {
+      display: block !important;
+      width: 100% !important;
+      padding: 0.375rem 0.75rem !important;
+      font-size: 0.875rem !important;
+      font-weight: 400 !important;
+      line-height: 1.5 !important;
+      color: #212529 !important;
+      -webkit-appearance: none !important;
+      -moz-appearance: none !important;
+      appearance: none !important;
+      background-color: white !important;
+      background-clip: padding-box !important;
+      border: 1px solid var(--color-gray-700) !important;
+      border-radius: var(--border-radius) !important;
+      transition: background-color 0.05s ease-in-out, border-color 0.05s ease-in-out, box-shadow 0.05s ease-in-out !important;
+    }
+
+    input:focus {
+      color: #212529 !important;
+      background-color: var(--color-nutifood-white) !important;
+      border-color: var(--color-nutifood-primary) !important;
+      outline: 0 !important;
+      box-shadow: 0 0 0 0.25rem rgba(83, 125, 93, 0.25) !important;
+    }
+
+    input::placeholder {
+      color: var(--color-gray-300);
+    }
+  }
+}
+
+#admin-settings-tabs-container,
+#workspace-container {
+
+  input,
+  select,
+  optgroup,
+  textarea,
+  ::file-selector-button {
+    color: var(--color-nutifood-tertiary) !important;
+    background-color: var(--color-nutifood-white) !important;
+  }
+}
+
+html.dark {
+  --color-gray-50: #1f1f1f;
+  --color-gray-100: #2a2a2a;
+  --color-gray-200: #3a3a3a;
+  --color-gray-300: #4a4a4a;
+  --color-gray-400: #5a5a5a;
+  --color-gray-500: #6a6a6a;
+  --color-gray-600: #7a7a7a;
+  --color-gray-700: #8a8a8a;
+  --color-gray-800: #9a9a9a;
+  --color-gray-850: #0D0D0D;
+  --color-gray-900: #0D0D0D;
+  --color-gray-950: #212121;
+
+  .bg-white {
+    background-color: var(--color-gray-50) !important;
+  }
+
+  .dark\:text-gray-300 {
+    color: var(--color-nutifood-white) !important;
+  }
+
+  .dark\:text-gray-100 {
+    &:is(.dark *) {
+      color: var(--color-nutifood-secondary) !important;
+    }
+  }
+
+  [data-state="unchecked"] {
+    border: 1px solid var(--color-nutifood-primary) !important;
+  }
+
+  .modal {
+    button {
+      color: var(--color-nutifood-primary) !important;
+    }
+
+    /* div div button {
+      color: var(--color-nutifood-white) !important;
+    } */
+
+    button div button {
+      color: var(--color-nutifood-primary) !important;
+    }
+
+    button:hover {
+      color: var(--color-nutifood-secondary) !important;
+    }
+
+    button:hover div {
+      color: var(--color-nutifood-secondary) !important;
+    }
+
+    [aria-selected="true"] {
+      color: var(--color-nutifood-secondary) !important;
+    }
+
+    .hover\:bg-gray-900 {
+      background-color: var(--color-nutifood-primary) !important;
+      color: var(--color-nutifood-white) !important;
+    }
+
+    .hover\:bg-gray-900 {
+      &:hover {
+        background-color: var(--color-nutifood-quaternary) !important;
+        color: var(--color-nutifood-tertiary) !important;
+      }
+    }
+
+    input,
+    select,
+    optgroup,
+    textarea,
+    ::file-selector-button {
+      color: var(--color-nutifood-primary);
+    }
+
+    div div:last-of-type div:last-of-type div:last-of-type {
+      /* button {
+        color: var(--color-nutifood-white) !important;
+        background-color: var(--color-nutifood-primary) !important;
+      } */
+
+      #tab-account,
+      #tab-about {
+        button {
+          color: var(--color-nutifood-white) !important;
+          background-color: var(--color-nutifood-primary) !important;
+        }
+
+        button:hover {
+          color: var(--color-nutifood-tertiary) !important;
+          background-color: var(--color-nutifood-quaternary) !important;
+        }
+
+        .text-gray-500 {
+          background-color: transparent !important;
+          color: var(--color-nutifood-primary) !important;
+        }
+
+        .text-gray-500:hover {
+          color: var(--color-nutifood-tertiary) !important;
+          background-color: transparent !important;
+        }
+      }
+    }
+  }
+
+  input,
+  select,
+  optgroup,
+  textarea,
+  ::file-selector-button {
+    color: var(--color-nutifood-white);
+    background-color: var(--color-gray-50) !important;
+  }
+
+  body div.z-99999999 {
+    .bg-gray-50 {
+      background-color: var(--color-gray-50) !important;
+    }
+
+    .text-lg {
+      color: var(--color-nutifood-white) !important;
+    }
+
+    .text-gray-500 {
+      color: var(--color-nutifood-white) !important;
+    }
+
+    button.bg-gray-900 {
+      background-color: var(--color-nutifood-primary) !important;
+      color: var(--color-nutifood-white) !important;
+    }
+
+    button.bg-gray-900:hover {
+      background-color: var(--color-nutifood-quaternary) !important;
+      color: var(--color-nutifood-tertiary) !important;
+    }
+
+    button.bg-gray-100 {
+      background-color: var(--color-nutifood-secondary) !important;
+      color: var(--color-nutifood-white) !important;
+    }
+
+    button.bg-gray-100:hover {
+      background-color: var(--color-nutifood-quaternary) !important;
+      color: var(--color-nutifood-tertiary) !important;
+    }
+  }
+
+  #messages-container {
+    .border-gray-100 {
+      /* color: var(--color-nutifood-white) !important; */
+      background-color: var(--color-gray-50) !important;
+    }
+  }
+
+  #sidebar {
+    .text-gray-300 {
+      color: var(--color-nutifood-white) !important;
+    }
+
+    a {
+      color: var(--color-nutifood-white) !important;
+    }
+
+    button {
+      color: var(--color-nutifood-white) !important;
+      background-color: var(--color-gray-900) !important;
+    }
+
+    button div button {
+      color: var(--color-nutifood-white) !important;
+    }
+
+    button:hover div {
+      color: var(--color-nutifood-white) !important;
+    }
+
+    .hover\:bg-gray-900 {
+      background-color: var(--color-nutifood-primary) !important;
+      color: var(--color-nutifood-white) !important;
+    }
+
+    .hover\:bg-gray-900 {
+      &:hover {
+        background-color: var(--color-nutifood-quaternary) !important;
+        color: var(--color-nutifood-white) !important;
+      }
+    }
+
+    .hover\:bg-gray-100:hover {
+      color: var(--color-nutifood-white) !important;
+    }
+
+    .hover\:bg-gray-100:hover button {
+      color: var(--color-nutifood-white) !important;
+    }
+
+    .hover\:bg-gray-100:hover div {
+      color: var(--color-nutifood-white) !important;
+    }
+
+    a.bg-gray-100 {
+      color: var(--color-nutifood-white) !important;
+    }
+
+    .group-hover\:bg-gray-100 {
+      &:is(:where(.group):hover *) {
+        color: var(--color-nutifood-white) !important;
+      }
+    }
+
+  }
+
+  #admin-settings-tabs-container {
+    button {
+      color: var(--color-nutifood-secondary) !important;
+    }
+
+    button:hover {
+      color: var(--color-nutifood-secondary) !important;
+    }
+
+    .dark\:text-gray-600 {
+      &:is(.dark *) {
+        color: var(--color-nutifood-primary) !important;
+      }
+    }
+  }
+
+  #auth-page {
+    #auth-container {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: var(--color-gray-950);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+      input,
+      select,
+      optgroup,
+      textarea,
+      ::file-selector-button {
+        color: var(--color-nutifood-white);
+      }
+    }
+
+    form {
+      background: var(--color-gray-100);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+
+      div:first-of-type {
+        margin-bottom: 0.5rem;
+      }
+
+      img {
+        filter: none !important;
+      }
+
+      button {
+        background-color: var(--color-nutifood-primary);
+        color: var(--color-nutifood-white);
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: var(--color-nutifood-quaternary) !important;
+        color: var(--color-nutifood-tertiary) !important;
+      }
+
+      label {
+        color: var(--color-nutifood-white) !important;
+        margin-bottom: 0.5rem;
+      }
+
+      input {
+        display: block !important;
+        width: 100% !important;
+        padding: 0.375rem 0.75rem !important;
+        font-size: 0.875rem !important;
+        font-weight: 400 !important;
+        line-height: 1.5 !important;
+        color: var(--color-nutifood-tertiary) !important;
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        appearance: none !important;
+        background-clip: padding-box !important;
+        border: 1px solid var(--color-gray-50) !important;
+        border-radius: var(--border-radius) !important;
+        transition: background-color 0.05s ease-in-out, border-color 0.05s ease-in-out, box-shadow 0.05s ease-in-out !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      input:focus {
+        color: var(--color-nutifood-tertiary) !important;
+        /* background-color: white; */
+        border-color: var(--color-nutifood-primary) !important;
+        outline: 0 !important;
+        box-shadow: 0 0 0 0.25rem rgba(83, 125, 93, 0.25) !important;
+      }
+
+      input::placeholder {
+        color: var(--color-gray-300);
+      }
+
+      div[class*="text-2xl"] {
+        color: var(--color-nutifood-white) !important;
+      }
+    }
+  }
+
+  .text-gray-500 {
+    color: var(--color-nutifood-white) !important;
+  }
+}

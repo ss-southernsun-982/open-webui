@@ -1,7 +1,7 @@
 from typing import Optional, Union, List, Dict, Any
 from open_webui.models.users import Users, UserModel
 from open_webui.models.groups import Groups
-
+from open_webui.models.chats import Chats
 
 from open_webui.config import DEFAULT_USER_PERMISSIONS
 import json
@@ -145,3 +145,9 @@ def get_users_with_access(
             user_ids_with_access.update(group_user_ids)
 
     return Users.get_users_by_user_ids(list(user_ids_with_access))
+
+#prevent chats if over budget
+def limit_chats_by_budget(user_id: str, model_id: str) -> bool:
+    total_tokens = Chats.get_total_tokens_current_date(user_id)
+    budget = Users.get_budget_by_model_id(user_id, model_id) or Groups.get_budget_by_model_id(user_id, model_id) or 1e10
+    return total_tokens >= budget

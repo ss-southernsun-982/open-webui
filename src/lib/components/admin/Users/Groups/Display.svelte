@@ -8,6 +8,7 @@
 	export let name = '';
 	export let color = '';
 	export let description = '';
+	export let budget = '';
 </script>
 
 <div class="flex gap-2">
@@ -57,5 +58,22 @@
 			bind:value={description}
 			placeholder={$i18n.t('Group Description')}
 		/>
+	</div>
+</div>
+
+<div class="flex flex-col w-full mt-2">
+	<hr class=" border-gray-100 dark:border-gray-850 my-2" />
+	<div class="flex flex-col w-full">
+		<div class=" mb-2 text-sm font-medium">{$i18n.t('Budget Permissions')}</div>
+		<div class="  flex w-full justify-between my-2 pr-2">
+			<div>
+				<textarea
+					class="text-sm w-full bg-transparent outline-hidden resize-none"
+					rows="10"
+					placeholder="json editor"
+					bind:value={budget}
+				/>
+			</div>
+		</div>
 	</div>
 </div>

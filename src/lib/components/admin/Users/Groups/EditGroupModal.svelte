@@ -32,6 +32,7 @@
 
 	export let name = '';
 	export let description = '';
+	export let budget = '';
 
 	export let permissions = {
 		workspace: {
@@ -64,10 +65,11 @@
 
 	const submitHandler = async () => {
 		loading = true;
-
+		let budget_parsed = JSON.parse(budget);
 		const group = {
 			name,
 			description,
+			budget: budget_parsed,
 			permissions,
 			user_ids: userIds
 		};
@@ -82,6 +84,7 @@
 		if (group) {
 			name = group.name;
 			description = group.description;
+			budget = JSON.stringify(group?.budget ?? '', null, 2);
 			permissions = group?.permissions ?? {};
 
 			userIds = group?.user_ids ?? [];
@@ -214,7 +217,7 @@
 							class="flex-1 mt-1 lg:mt-1 lg:h-[22rem] lg:max-h-[22rem] overflow-y-auto scrollbar-hidden"
 						>
 							{#if selectedTab == 'general'}
-								<Display bind:name bind:description />
+								<Display bind:name bind:description bind:budget />
 							{:else if selectedTab == 'permissions'}
 								<Permissions bind:permissions />
 							{:else if selectedTab == 'users'}

@@ -2,6 +2,8 @@ from logging.config import fileConfig
 
 from alembic import context
 from open_webui.models.auths import Auth
+from open_webui.models.groups import Group
+from open_webui.models.users import User
 from open_webui.env import DATABASE_URL
 from sqlalchemy import engine_from_config, pool
 
@@ -19,6 +21,8 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 target_metadata = Auth.metadata
+target_metadata = Group.metadata
+target_metadata = User.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

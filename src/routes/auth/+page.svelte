@@ -124,19 +124,19 @@
 		if (logo) {
 			const isDarkMode = document.documentElement.classList.contains('dark');
 
-			if (isDarkMode) {
-				const darkImage = new Image();
-				darkImage.src = `${WEBUI_BASE_URL}/static/favicon-dark.png`;
-
-				darkImage.onload = () => {
-					logo.src = `${WEBUI_BASE_URL}/static/favicon-dark.png`;
-					logo.style.filter = ''; // Ensure no inversion is applied if favicon-dark.png exists
-				};
-
-				darkImage.onerror = () => {
-					logo.style.filter = 'invert(1)'; // Invert image if favicon-dark.png is missing
-				};
-			}
+			//if (isDarkMode) {
+			//	const darkImage = new Image();
+			//	darkImage.src = `${WEBUI_BASE_URL}/static/favicon-dark.png`;
+			//
+			//	darkImage.onload = () => {
+			//		logo.src = `${WEBUI_BASE_URL}/static/favicon-dark.png`;
+			//		logo.style.filter = ''; // Ensure no inversion is applied if favicon-dark.png exists
+			//	};
+			//
+			//	darkImage.onerror = () => {
+			//		logo.style.filter = 'invert(1)'; // Invert image if favicon-dark.png is missing
+			//	};
+			//}
 		}
 	}
 
@@ -178,8 +178,6 @@
 	<div class="w-full absolute top-0 left-0 right-0 h-8 drag-region" />
 
 	{#if loaded}
-		
-
 		<div
 			class="fixed bg-transparent min-h-screen w-full flex justify-center font-primary z-50 text-black dark:text-white"
 			id="auth-container"
@@ -190,9 +188,7 @@
 						<div
 							class="flex items-center justify-center gap-3 text-xl sm:text-2xl text-center font-semibold dark:text-gray-200"
 						>
-							<div>
-								{$i18n.t('Signing in to {{WEBUI_NAME}}', { WEBUI_NAME: $WEBUI_NAME })}
-							</div>
+							<img src="/static/logo.png" alt="Logo" id="logo" class="w-50" />
 
 							<div>
 								<Spinner className="size-5" />
@@ -209,18 +205,8 @@
 									submitHandler();
 								}}
 							>
-								<div class="mb-1">
-									<div class=" text-2xl font-medium">
-										{#if $config?.onboarding ?? false}
-											{$i18n.t(`Get started with {{WEBUI_NAME}}`, { WEBUI_NAME: $WEBUI_NAME })}
-										{:else if mode === 'ldap'}
-											{$i18n.t(`Sign in to {{WEBUI_NAME}} with LDAP`, { WEBUI_NAME: $WEBUI_NAME })}
-										{:else if mode === 'signin'}
-											{$i18n.t(`Sign in to {{WEBUI_NAME}}`, { WEBUI_NAME: $WEBUI_NAME })}
-										{:else}
-											{$i18n.t(`Sign up to {{WEBUI_NAME}}`, { WEBUI_NAME: $WEBUI_NAME })}
-										{/if}
-									</div>
+								<div class="mb-1" style="align-self: anchor-center;">
+									<img src="/static/logo.png" alt="Logo" id="logo" class="w-50" />
 
 									{#if $config?.onboarding ?? false}
 										<div class="mt-1 text-xs font-medium text-gray-600 dark:text-gray-500">

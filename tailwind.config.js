@@ -9,18 +9,18 @@ export default {
 		extend: {
 			colors: {
 				gray: {
-					50: 'var(--color-gray-50, #f9f9f9)',
-					100: 'var(--color-gray-100, #ececec)',
-					200: 'var(--color-gray-200, #e3e3e3)',
-					300: 'var(--color-gray-300, #cdcdcd)',
-					400: 'var(--color-gray-400, #b4b4b4)',
-					500: 'var(--color-gray-500, #9b9b9b)',
-					600: 'var(--color-gray-600, #676767)',
-					700: 'var(--color-gray-700, #4e4e4e)',
-					800: 'var(--color-gray-800, #333)',
-					850: 'var(--color-gray-850, #262626)',
-					900: 'var(--color-gray-900, #171717)',
-					950: 'var(--color-gray-950, #0d0d0d)'
+					50: '#006E43', // dùng làm màu nền sáng
+					100: '#FFEF99', // secondary nhạt
+					200: '#FFEF99',
+					300: '#006E43', // màu secondary chính
+					400: '#006E43',
+					500: '#1F1F00',
+					600: '#E6BA00',
+					700: '#1F1F00',
+					800: '#0D0D0D',
+					850: '#262626',
+					900: '#171717',
+					950: '#0D0D0D'
 				}
 			},
 			typography: {

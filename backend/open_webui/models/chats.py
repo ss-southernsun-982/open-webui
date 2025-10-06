@@ -962,5 +962,57 @@ class ChatTable:
         except Exception:
             return False
 
+    def get_total_tokens_current_date(self, user_id: str) -> int:
+        sqlite_query = """select
+                msg.tokens,
+                u.id
+            from
+                "user" u
+            cross join lateral (
+                select
+                    sum((elem -> 'usage' ->> 'total_tokens')::int) as tokens
+                from
+                    chat c,
+                    json_each(c.chat, '$.messages') as elem
+                where
+                    json_extract(elem.value, '$.usage') is not null
+                    and json_extract(elem.value, '$.timestamp') / 1000 >= strftime('%s', 'now', 'start of day')
+                    and c.user_id = u.id
+                group by
+                    c.user_id
+            ) as msg
+            where
+                u.id = :user_id;"""
+        postgres_query = """select
+                msg.tokens,
+                u.id
+            from
+                "user" u
+            cross join lateral (
+                select
+                    sum((elem -> 'usage' ->> 'total_tokens')::int) as tokens
+                from
+                    chat c,
+                    json_array_elements(c.chat -> 'messages') as elem
+                where
+                    (elem::jsonb) ? 'usage'
+                    and TO_TIMESTAMP((elem ->> 'timestamp')::bigint)::date = CURRENT_DATE
+                    and c.user_id = u.id
+                group by
+                    c.user_id
+            ) as msg
+            where
+                u.id = :user_id;"""
+        with get_db() as db:
+            if db.bind.dialect.name == "sqlite":
+                query = sqlite_query
+            elif db.bind.dialect.name == "postgresql":
+                query = postgres_query
+            else:
+                raise NotImplementedError(
+                    f"Unsupported dialect: {db.bind.dialect.name}"
+                )
+            result = db.execute(text(query), {"user_id": user_id}).fetchone()
+            return result[0] if result else 0
 
 Chats = ChatTable()

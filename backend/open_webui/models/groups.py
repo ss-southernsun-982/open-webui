@@ -40,6 +40,16 @@ class Group(Base):
     created_at = Column(BigInteger)
     updated_at = Column(BigInteger)
 
+    """
+    budget format:
+    {
+        "openrouter/horizon-beta": 1e6,
+        "openrouter/llm": 1e6,
+        "moonshotai/kimi-dev-72b:free": 1e6,
+    }
+    """
+    budget = Column(JSON, nullable=True)
+
 
 class GroupModel(BaseModel):
     model_config = ConfigDict(from_attributes=True)
@@ -57,6 +67,7 @@ class GroupModel(BaseModel):
 
     created_at: int  # timestamp in epoch
     updated_at: int  # timestamp in epoch
+    budget: Optional[dict] = None
 
 
 ####################
@@ -73,6 +84,7 @@ class GroupResponse(BaseModel):
     data: Optional[dict] = None
     meta: Optional[dict] = None
     user_ids: list[str] = []
+    budget: Optional[dict] = None
     created_at: int  # timestamp in epoch
     updated_at: int  # timestamp in epoch
 
@@ -80,6 +92,7 @@ class GroupResponse(BaseModel):
 class GroupForm(BaseModel):
     name: str
     description: str
+    budget: Optional[dict] = None
     permissions: Optional[dict] = None
 
 
@@ -121,10 +134,12 @@ class GroupTable:
 
     def get_groups(self) -> list[GroupModel]:
         with get_db() as db:
-            return [
+            groups = [
                 GroupModel.model_validate(group)
                 for group in db.query(Group).order_by(Group.updated_at.desc()).all()
             ]
+            log.warning(f"get_groups: {groups}")
+            return groups
 
     def get_groups_by_member_id(self, user_id: str) -> list[GroupModel]:
         with get_db() as db:
@@ -327,5 +342,25 @@ class GroupTable:
             log.exception(e)
             return None
 
+    def get_budget_by_model_id(self, user_id: str, model_id: str) -> Optional[dict]:
+        try:
+            with get_db() as db:
+                limit = 0
+                groups = (
+                    db.query(Group)
+                    .filter(Group.user_ids != None)
+                    .filter(Group.user_ids.cast(String).like(f'%"{user_id}"%'))  # string match
+                    .all()
+                )
+                for group in groups:
+                    if group.budget and group.budget.get(model_id):
+                        budget_limit = group.budget.get(model_id)
+                        limit = max(limit, budget_limit)
+                if not limit:
+                    return None
+                return limit
+        except Exception as e:
+            log.exception(e)
+            return None
 
 Groups = GroupTable()

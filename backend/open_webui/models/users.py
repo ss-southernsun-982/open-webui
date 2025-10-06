@@ -9,7 +9,7 @@ from open_webui.models.groups import Groups
 
 
 from pydantic import BaseModel, ConfigDict
-from sqlalchemy import BigInteger, Column, String, Text
+from sqlalchemy import BigInteger, Column, String, Text, JSON
 from sqlalchemy import or_
 
 
@@ -36,6 +36,15 @@ class User(Base):
     info = Column(JSONField, nullable=True)
 
     oauth_sub = Column(Text, unique=True)
+    """
+    budget format:
+    {
+        "openrouter/horizon-beta": 1e6,
+        "openrouter/llm": 1e6,
+        "moonshotai/kimi-dev-72b:free": 1e6,
+    }
+    """
+    budget = Column(JSON, nullable=True)
 
 
 class UserSettings(BaseModel):
@@ -62,6 +71,8 @@ class UserModel(BaseModel):
     oauth_sub: Optional[str] = None
 
     model_config = ConfigDict(from_attributes=True)
+
+    budget: Optional[dict] = None
 
 
 ####################
@@ -112,6 +123,7 @@ class UserUpdateForm(BaseModel):
     email: str
     profile_image_url: str
     password: Optional[str] = None
+    budget: Optional[dict] = None
 
 
 class UsersTable:
@@ -412,5 +424,15 @@ class UsersTable:
             else:
                 return None
 
+    def get_budget_by_model_id(self, id: str, model_id: str) -> Optional[float]:
+        try:
+            with get_db() as db:
+                user = db.query(User).filter_by(id=id).first()
+                if user.budget is None:
+                    return None
+                else:
+                    return user.budget.get(model_id, None)
+        except Exception:
+            return None
 
 Users = UsersTable()
