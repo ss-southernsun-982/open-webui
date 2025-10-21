@@ -344,3 +344,5 @@ backend/open_webui/static/web-app-manifest-192x192.png
 backend/open_webui/static/*
 .history
 wf-retrival.drawio
+datasets
+wf-retrival.drawio
