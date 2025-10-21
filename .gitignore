@@ -1,3 +1,5 @@
+x.py
+yarn.lock
 .DS_Store
 node_modules
 /build
@@ -12,7 +14,8 @@ vite.config.ts.timestamp-*
 __pycache__/
 *.py[cod]
 *$py.class
-
+.nvmrc
+CLAUDE.md
 # C extensions
 *.so
 
@@ -340,3 +343,4 @@ backend/open_webui/static/user-import.csv
 backend/open_webui/static/web-app-manifest-192x192.png
 backend/open_webui/static/*
 .history
+wf-retrival.drawio

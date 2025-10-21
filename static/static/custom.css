@@ -22,7 +22,7 @@
 
 .border-gray-100 {
   border-color: var(--color-nutifood-primary) !important;
-  background-color: var(--color-nutifood-primary) !important;
+  background-color: var(--color-nutifood-white) !important;
 }
 
 .chat-user {
